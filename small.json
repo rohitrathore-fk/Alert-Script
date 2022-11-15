@@ -1,0 +1,358 @@
+[
+    {
+        "type": "Alert",
+        "id": "83d30e7b-1a02-40dc-b111-4a8fd2645ee1",
+        "name": "Critical | PROD | LOG |  data-transformer-service-prod  | 4xx",
+        "description": "",
+        "sources": [
+            {
+                "id": "c5f436eb-a9f9-4122-b76e-d015b54534db",
+                "retention_period": null,
+                "token": "49f159a1-f33c-4c05-825e-b07911d129d4",
+                "name": "data-transformer-service",
+                "stored_days": null
+            }
+        ],
+        "actions": [
+            {
+                "id": "4c605f6f-030f-4705-9402-ee592b77f0ff",
+                "min_matches_count": 50,
+                "max_matches_count": 50,
+                "min_report_count": 1,
+                "max_report_count": 1,
+                "min_matches_period": "30Minute",
+                "min_report_period": "Hour",
+                "targets": [
+                    {
+                        "id": "50e00bfe-ef82-4740-981b-27cc910015e3",
+                        "name": "integration-team-phd",
+                        "description": null,
+                        "type": "Pagerduty",
+                        "params_set": {
+                            "service_key": "15c8f9e02cb74953888c54d30ae85662",
+                            "description": ""
+                        },
+                        "user_data": {},
+                        "alert_content_set": {
+                            "le_trigger_event": "true",
+                            "le_context": "true",
+                            "le_log_link": "false"
+                        }
+                    }
+                ],
+                "enabled": true,
+                "type": "Alert"
+            }
+        ],
+        "patterns": [
+            "where(access AND /HTTP\\/1.1\\\u201d 4/\u201d or /status=4/)"
+        ],
+        "leql": {
+            "statement": "where(access AND /HTTP\\/1.1\\\u201d 4/\u201d or /status=4/)"
+        },
+        "priority": 4,
+        "user_data": {
+            "product_type": "OPS"
+        },
+        "labels": []
+    },
+    {
+        "type": "Alert",
+        "id": "32a6870a-accd-4e36-a2dc-4f5c0ac9bcd1",
+        "name": "DemoTag-Screen host getsetup",
+        "description": null,
+        "sources": [],
+        "actions": [],
+        "patterns": [
+            "Screenreen GetSetup"
+        ],
+        "leql": {},
+        "priority": -1,
+        "user_data": {},
+        "labels": [
+            {
+                "id": "eb173190-60e1-4e95-871b-6921ddf6839a",
+                "sn": 1019,
+                "name": "DemoTag-Screen host getsetup",
+                "color": "ffcc33",
+                "reserved": false
+            }
+        ]
+    },
+    {
+        "type": "Alert",
+        "id": "b96c4100-3130-460f-9dd1-ce5337c7b49e",
+        "name": "Low Network",
+        "description": null,
+        "sources": [
+            {
+                "id": "5756ca65-7a93-469d-99fc-e7ee5ef4ca4d",
+                "retention_period": null,
+                "token": "93fb6b00-b495-44bf-adb0-9633248f55c2",
+                "name": "Lambda:uat-postDataToUrl",
+                "stored_days": null
+            }
+        ],
+        "actions": [],
+        "patterns": [
+            "metric=/NetworkIn/ AND maximum<1000"
+        ],
+        "leql": {},
+        "priority": -1,
+        "user_data": {},
+        "labels": [
+            {
+                "id": "464f6e32-0aca-4882-9339-18746014af9b",
+                "sn": 1035,
+                "name": "Low Network",
+                "color": "0000ff",
+                "reserved": false
+            }
+        ]
+    },
+    {
+        "type": "Alert",
+        "id": "0749a8e8-e35f-4b48-9938-5bcb0275604a",
+        "name": "Critical | LOG | DI Worker |  Ocean | ERROR in DataIngestion worker",
+        "description": "",
+        "sources": [
+            {
+                "id": "5d3cb014-f8a6-4013-8aea-637657f70753",
+                "retention_period": null,
+                "token": "2bb023ba-76a3-45c0-9597-f65077b7fc1e",
+                "name": "data-ingestion-worker-prod",
+                "stored_days": null
+            }
+        ],
+        "actions": [
+            {
+                "id": "c71b0a73-cd92-4341-9b73-31285daada14",
+                "min_matches_count": 0,
+                "max_matches_count": 0,
+                "min_report_count": 1,
+                "max_report_count": 1,
+                "min_matches_period": "Hour",
+                "min_report_period": "Hour",
+                "targets": [
+                    {
+                        "id": "4a2f9aa3-0dca-4be6-9983-0bf828f943ff",
+                        "name": "International Visibility",
+                        "description": null,
+                        "type": "Mailto",
+                        "params_set": {
+                            "direct": "international-visibility@fourkites-inc.pagerduty.com"
+                        },
+                        "user_data": {},
+                        "alert_content_set": {
+                            "le_trigger_event": "true",
+                            "le_context": "true",
+                            "le_log_link": "false"
+                        }
+                    }
+                ],
+                "enabled": true,
+                "type": "Alert"
+            }
+        ],
+        "patterns": [
+            "where(/ERROR/ AND (/OceanTrackingUpdateTask/))"
+        ],
+        "leql": {
+            "statement": "where(/ERROR/ AND (/OceanTrackingUpdateTask/))"
+        },
+        "priority": 3,
+        "user_data": {
+            "product_type": "OPS"
+        },
+        "labels": [
+            {
+                "id": "94651ef3-1702-415c-bf65-dbdb05c4e6f3",
+                "sn": 73066,
+                "name": "DataIngestion worker",
+                "color": "ff0000",
+                "reserved": false
+            }
+        ]
+    },
+    {
+        "type": "Alert",
+        "id": "a638d2f9-541b-4718-8ad5-e44849976276",
+        "name": "Net-Vis Reveal Request accepted",
+        "description": null,
+        "sources": [
+            {
+                "id": "35af9ecc-44d6-4f6b-978d-598ac7fb04a2",
+                "retention_period": null,
+                "token": "4f994198-cf31-4a21-b935-52b8be375600",
+                "name": "em-worker",
+                "stored_days": null
+            }
+        ],
+        "actions": [
+            {
+                "id": "51510483-d05c-4b7c-b0c3-2da26b549d92",
+                "min_matches_count": 1,
+                "max_matches_count": 1,
+                "min_report_count": 1,
+                "max_report_count": 1,
+                "min_matches_period": "Minute",
+                "min_report_period": "Minute",
+                "targets": [
+                    {
+                        "id": "ea9956f0-7cfd-458c-87c5-75c42c07821f",
+                        "name": "Slack",
+                        "description": "",
+                        "type": "Slack",
+                        "params_set": {
+                            "url": "https://hooks.slack.com/services/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"
+                        },
+                        "user_data": {},
+                        "alert_content_set": {
+                            "le_log_link": "false",
+                            "le_context": "false"
+                        }
+                    }
+                ],
+                "enabled": true,
+                "type": "Alert"
+            }
+        ],
+        "patterns": [
+            "/\"MessageType\"=>\"REVEAL_REQUEST_ACCEPTED\"/"
+        ],
+        "leql": {},
+        "priority": -1,
+        "user_data": {},
+        "labels": [
+            {
+                "id": "e9c0b7a9-daf3-47cf-872e-9580640f296d",
+                "sn": 416936,
+                "name": "Net-Vis-Reveal-Request",
+                "color": "9b59b6",
+                "reserved": false
+            }
+        ]
+    },
+    {
+        "type": "Alert",
+        "id": "afa98790-a53e-43b0-9d87-63352dec67ef",
+        "name": "LRC Error PROD",
+        "description": "",
+        "sources": [
+            {
+                "id": "deb00ced-9d9b-4f3c-9378-1ea72932fb36",
+                "retention_period": null,
+                "token": "a899c70e-5813-4fd8-ad8d-1f3accdaa28e",
+                "name": "late-reason-code-service",
+                "stored_days": null
+            }
+        ],
+        "actions": [
+            {
+                "id": "144860c8-8868-48f6-8078-2bc9fa05a78f",
+                "min_matches_count": 0,
+                "max_matches_count": 0,
+                "min_report_count": 1,
+                "max_report_count": 1,
+                "min_matches_period": "Hour",
+                "min_report_period": "Hour",
+                "targets": [
+                    {
+                        "name": null,
+                        "description": null,
+                        "type": "Pagerduty",
+                        "params_set": {
+                            "description": "LRC Prod ERROR",
+                            "service_key": "68018141e6c7421f8cd4a10e5cd4fbfb"
+                        },
+                        "user_data": null,
+                        "alert_content_set": {
+                            "le_log_link": "true",
+                            "le_context": "true"
+                        }
+                    }
+                ],
+                "enabled": true,
+                "type": "Alert"
+            }
+        ],
+        "patterns": [
+            "where(/ERROR/ AND NOT /403 Forbidden/ AND NOT /Unknown authentication/ AND NOT /Exception in RequestFilter.java/ AND NOT/.uk4h60a5v4vnv5o3vom0n0y6hys/AND NOT/SqlExceptionHelper/)"
+        ],
+        "leql": {
+            "statement": "where(/ERROR/ AND NOT /403 Forbidden/ AND NOT /Unknown authentication/ AND NOT /Exception in RequestFilter.java/ AND NOT/.uk4h60a5v4vnv5o3vom0n0y6hys/AND NOT/SqlExceptionHelper/)"
+        },
+        "priority": 3,
+        "user_data": {
+            "product_type": "OPS"
+        },
+        "labels": [
+            {
+                "id": "dc0e3dad-be76-446d-822e-07e281a975b2",
+                "sn": 348379,
+                "name": "ERROR",
+                "color": "9b59b6",
+                "reserved": false
+            }
+        ]
+    },
+    {
+        "type": "Alert",
+        "id": "d857b7d8-30b7-4e0d-83e4-755d1a1421a0",
+        "name": "ALERT!!!! - Api Parser - 5XX Error",
+        "description": null,
+        "sources": [
+            {
+                "id": "e1cc8a83-dd59-4e3d-b7d4-e0d22c3576fd",
+                "retention_period": null,
+                "token": "48d6fcfb-841a-4357-9f33-d17041f07dce",
+                "name": "Api Parser",
+                "stored_days": null
+            }
+        ],
+        "actions": [
+            {
+                "id": "3f3a3822-e927-4d1e-adb7-12569facf100",
+                "min_matches_count": 1,
+                "max_matches_count": 1,
+                "min_report_count": 1,
+                "max_report_count": 1,
+                "min_matches_period": "5Minute",
+                "min_report_period": "Hour",
+                "targets": [
+                    {
+                        "id": "6a2de630-f1d1-4a30-8e44-6c5ff21a5f22",
+                        "name": "Slack",
+                        "description": "",
+                        "type": "Slack",
+                        "params_set": {
+                            "url": "https://hooks.slack.com/services/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"
+                        },
+                        "user_data": {},
+                        "alert_content_set": {
+                            "le_log_link": "false",
+                            "le_context": "true"
+                        }
+                    }
+                ],
+                "enabled": true,
+                "type": "Alert"
+            }
+        ],
+        "patterns": [
+            "ERROR AND /Response code: 5/"
+        ],
+        "leql": {},
+        "priority": -1,
+        "user_data": {},
+        "labels": [
+            {
+                "id": "cb198c59-4964-4419-805f-6db852480725",
+                "sn": 494573,
+                "name": "5XX Po Ingestion",
+                "color": "ff0000",
+                "reserved": false
+            }
+        ]
+    }
+]

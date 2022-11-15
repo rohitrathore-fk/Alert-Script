@@ -1,0 +1,20 @@
+name = namespace_name LATER
+sources[0-n].name = all the namespace_name LATER
+/i /d /s = " not sure how to implement this, special ways in logenteries
+
+
+patterns = query
+actions{} for alert system
+special chars in NRQL         +-&|!(){}[]^"~*?:/\
+some patterns with spaces in bw are not accompanied by // not sure how to deal w it
+
+EQUATIONS
+where(/expr/) = "expr"
+NOT = -
+"/expr/" = "expr"
+
+
+
+
+
+    
